@@ -68,7 +68,7 @@ bash
 
        java com.javaprojectplane.cli.Main
 
-##🎮 Utilisation
+🎮 **Utilisation**
 
 Naviguer avec W/S ou ↑/↓
 
@@ -78,9 +78,13 @@ Revenir en arrière avec Q
 
 Fournir des données valides quand demandé (ex: immatriculation unique, numéros de passeport valides)
 
-##🧱 Détails d’Implémentation
 
-###📦 Classes Principales
+---
+
+🧱 **Détails d’Implémentation**
+
+
+📦 **Classes Principales**
 
 Plane
 
@@ -90,17 +94,18 @@ Plane
 
 Pilot
 
-  **Champs** : id, name, licenseNumber
+  **Champs**: id, name, licenseNumber
 
    **Méthodes** : Getters/Setters, toString
 
 Passenger
 
-   **Champs** : id, name, passportNumber, seatNumber
+   **Champs**: id, name, passportNumber, seatNumber
 
    **Méthodes** : Getters/Setters, toString
 
-###🧮 Stockage
+
+**🧮 Stockage**
 
    **Avions & pilotes** : tableaux statiques (max 100).
 
@@ -108,7 +113,7 @@ Passenger
 
    Pas de base de données (pas de persistance après fermeture).
 
-##🧰 Design Patterns Utilisés
+**🧰 Design Patterns Utilisés**
 
    **Singleton** : utilisé dans ConsoleMenu (menu unique partagé)
 
@@ -116,7 +121,7 @@ Passenger
 
    **MVC Partiel** : séparation Model (Plane, Pilot, Passenger), View (ConsoleMenu), Controller (Main)
 
-##⚠️ Limitations
+**⚠️ Limitations**
 
    Tableaux de taille fixe (100 avions/pilotes, 200 passagers max/avion)
 
@@ -124,7 +129,7 @@ Passenger
 
    Dépend de classes externes non fournies (ConsoleMenu, Validator, TransportFactory)
 
-##🌱 Améliorations Futures
+**🌱 Améliorations Futures**
 
    Remplacer les tableaux par des ArrayList
 
@@ -134,7 +139,7 @@ Passenger
 
    Ajouter des tests unitaires
 
-##👨‍💻 Auteur
+**👨‍💻 Auteur**
    
    Projet développé à des fins pédagogiques pour maîtriser Java, les structures de données, l’architecture logicielle et la conception d'interfaces CLI.
 
