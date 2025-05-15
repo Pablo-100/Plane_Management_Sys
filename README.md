@@ -1,142 +1,140 @@
-# Project Idea: **Plane Management System (CLI-based)**
-A basic command-line interface application with a menu system.
+# 🛩️ Plane Management System
+
+**Plane Management System** est une application Java en ligne de commande (CLI) avec une interface graphique textuelle inspirée des outils comme "Kali Tools". Elle permet la gestion complète des avions, pilotes, et passagers à travers un système de menus interactif.
+
+
+## 📌 Aperçu
+
+    ╔═════════════════════════════╗
+    ║ Plane Management System ║
+    ╚═════════════════════════════╝
+    
+    ➡ Manage Planes
+    ➡ Manage Pilots
+    ➡ Plane-Pilot Assignment
+    ➡ Manage Passengers
+    ➡ Exit
+    
+    Utiliser W/S ou ↑/↓ pour naviguer, Entrée pour sélectionner, Q pour revenir
 
 
 
-## Project Structure
+## ⚙️ Fonctionnalités
 
-```
-src/
-└── main/
+- ✈️ **Gestion des Avions** : Ajouter, consulter, chercher, et supprimer des avions (avec numéro d'immatriculation unique).
+- 👨‍✈️ **Gestion des Pilotes** : Ajouter, consulter, chercher, et supprimer des pilotes (avec numéro de licence unique).
+- 🔗 **Assignation Pilote–Avion** : Assigner un pilote à un avion et consulter les affectations.
+- 🧍 **Gestion des Passagers** : Ajouter, afficher, ou supprimer des passagers avec validation des passeports et des sièges.
+- 🎨 **Interface CLI Améliorée** : Interface intuitive avec de l’art ASCII pour la navigation.
+- ✅ **Validation des Entrées** : Intégrité des données assurée via une validation stricte.
+
+
+## 🗂️ Structure du Projet
+
+    plane-management-system/
+    └── src/
+    └── main/
     └── java/
-        └── com/
-            └── javaprojectplane/
-                └── cli/
-                    ├── Main.java
-                    ├── Plane.java
-                    ├── Pilot.java
-                    └── Passenger.java
-```
+    └── com/
+    └── javaprojectplane/
+    └── cli/
+        ├── ui/ 
+        ├── Main.java
+        ├── Plane.java
+        ├── Pilot.java
+        └── Passenger.java
 
 
-#### Description:
-The application will manage a simple system for tracking planes and their pilots. Users can perform basic operations like adding, viewing, and deleting planes and pilots, with data stored in arrays. The system will allow basic associations between planes and their assigned pilots.
+## 🛠️ Prérequis
 
----
+- Java Development Kit (JDK) 8 ou plus
+- Terminal ou environnement en ligne de commande
 
-### Features:
 
-#### 1. **Manage Planes**:
-   - Add a new plane.
-   - View all planes.
-   - Search for a plane by model or registration number.
-   - Delete a plane.
+## 🚀 Lancer le Projet
 
-#### 2. **Manage Pilots**:
-   - Add a new pilot.
-   - View all pilots.
-   - Search for a pilot by name or ID.
-   - Delete a pilot.
+### 1. Cloner le dépôt
 
-#### 3. **Plane-Pilot Assignment**:
-   - Assign a pilot to a plane.
-   - View the assigned pilot for a plane.
+bash
 
----
+    git clone https://github.com/your-username/plane-management-system.git
+    cd plane-management-system/src/main/java.
 
-### Menu Design (CLI):
-```plaintext
-Plane Management System:
-1. Manage Planes
-   a. Add Plane
-   b. View All Planes
-   c. Search for a Plane
-   d. Delete a Plane
-2. Manage Pilots
-   a. Add Pilot
-   b. View All Pilots
-   c. Search for a Pilot
-   d. Delete a Pilot
-3. Plane-Pilot Assignment
-   a. Assign Pilot to Plane
-   b. View Plane's Pilot
-4. Manage Passengers
-   a. Add Passenger to Plane
-   b. View Plane's Passengers
-   c. Remove Passenger from Plane
-5. Exit
-```
+2. Compiler le code
+        
+       javac com/javaprojectplane/cli/*.java
 
----
+3. Exécuter l'application
 
-### System Design Diagrams
-Below are the UML diagrams that illustrate the system's architecture, interactions, and structure:
+       java com.javaprojectplane.cli.Main
 
-1. **Class Diagram**: Shows the relationships between different classes in the system
-![Class Diagram](Class.jpg)
+##🎮 Utilisation
 
-2. **Use Case Diagram**: Illustrates the possible interactions between users and the system
-![Use Case Diagram](UseCase.jpg)
+Naviguer avec W/S ou ↑/↓
 
-3. **Sequence Diagram**: Demonstrates the flow of operations for pilot assignment
-![Sequence Diagram](Sequence.jpg)
+Sélectionner avec Entrée
 
----
+Revenir en arrière avec Q
 
-### Implementation Details:
+Fournir des données valides quand demandé (ex: immatriculation unique, numéros de passeport valides)
 
-#### Objects:
-1. **`Plane` Class**:
-   - Fields: `id`, `model`, `registrationNumber`, `pilotId`, `passengers[]`, `passengerCount`
-   - Methods: Getters/Setters, `toString`, `addPassenger`, `removePassenger`, `getPassengers`
+##🧱 Détails d’Implémentation
 
-2. **`Pilot` Class**:
-   - Fields: `id`, `name`, `licenseNumber`
-   - Methods: Getters/Setters, `toString`
+###📦 Classes Principales
 
-3. **`Passenger` Class**:
-   - Fields: `id`, `name`, `passportNumber`, `seatNumber`
-   - Methods: Getters/Setters, `toString`
+Plane
 
-#### Data Storage:
-- Use arrays to store `Plane` and `Pilot` objects
-- Each `Plane` object maintains its own array of `Passenger` objects
-- Operations such as add, search, and delete will directly manipulate these arrays
+   **Champs** : id, model, registrationNumber, pilotId, passengers[], passengerCount
 
-The data persistence and abstraction will be implemented in the next phase of the project.
+   **Méthodes** : addPassenger, removePassenger, getPassengers, toString, etc.
 
-### Design Patterns Used:
+Pilot
 
-#### 1. **Singleton Pattern**:
-- Implemented in `ConsoleMenu` class
-- Ensures a single instance of the menu system throughout the application
-- Manages consistent UI state and user interaction
+  **Champs** : id, name, licenseNumber
 
-#### 2. **Factory Pattern**:
-- Simple Factory implementation in `TransportFactory` class
-- Centralizes object creation for Planes, Pilots, and Passengers
-- Manages ID generation and instantiation logic
+   **Méthodes** : Getters/Setters, toString
 
-#### 3. **Partial MVC Pattern**:
-- **Model**: Clear data models in `Plane`, `Pilot`, and `Passenger` classes
-- **View**: `ConsoleMenu` class handling all UI rendering and user input
-- **Controller**: Main class handling business logic and flow control
-- Note: While not a strict MVC implementation, the separation of concerns provides a foundation for future enhancements
+Passenger
 
----
+   **Champs** : id, name, passportNumber, seatNumber
 
-### Tools:
-- **IDE**: IntelliJ IDEA, Eclipse, or VS Code.
-- **UML**: Lucidchart, StarUML.
+   **Méthodes** : Getters/Setters, toString
 
----
+###🧮 Stockage
 
-### Deliverables:
-1. **Executable Java Application**:
-   - A `.jar` file that runs on any machine with a JDK.
-2. **Documentation**:
-   - UML diagrams (Use Case, Class, Sequence).
+   **Avions & pilotes** : tableaux statiques (max 100).
 
----
+   **Passagers** : chaque avion possède un tableau (max 200).
 
-Thank you for your time and effort.
+   Pas de base de données (pas de persistance après fermeture).
+
+##🧰 Design Patterns Utilisés
+
+   **Singleton** : utilisé dans ConsoleMenu (menu unique partagé)
+
+   **Factory** : utilisé dans TransportFactory (création centralisée)
+
+   **MVC Partiel** : séparation Model (Plane, Pilot, Passenger), View (ConsoleMenu), Controller (Main)
+
+##⚠️ Limitations
+
+   Tableaux de taille fixe (100 avions/pilotes, 200 passagers max/avion)
+
+   Pas de persistance (les données disparaissent à la fermeture)
+
+   Dépend de classes externes non fournies (ConsoleMenu, Validator, TransportFactory)
+
+##🌱 Améliorations Futures
+
+   Remplacer les tableaux par des ArrayList
+
+   Ajouter un système de stockage persistant (fichier ou base de données)
+
+   Intégrer une vraie interface graphique (JavaFX ou Swing)
+
+   Ajouter des tests unitaires
+
+##👨‍💻 Auteur
+   
+   Projet développé à des fins pédagogiques pour maîtriser Java, les structures de données, l’architecture logicielle et la conception d'interfaces CLI.
+
